@@ -18,7 +18,10 @@ module.exports = {
 	plugins: [
 		new HtmlWebpackPlugin ({
 			template: './src/index.html'
-		})
-	]
-
+		}),
+		new webpack.ContextReplacementPlugin(
+      /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
+      __dirname
+    )
+]
 };
